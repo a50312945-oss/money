@@ -1,7 +1,7 @@
 
 {
-  "name": "SecureVault Enterprise",
-  "short_name": "SecureVault",
+  "name": "機密管理 Enterprise",
+  "short_name": "機密管理",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0e27",

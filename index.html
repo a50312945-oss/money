@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="SecureVault - 安全的個人財務管理系統，支援記帳、密碼管理和資產追蹤，採用AES-256加密保護您的數據">
+    <meta name="description" content="機密管理 - 安全的個人財務管理系統，支援記帳、密碼管理和資產追蹤，採用AES-256加密保護您的數據">
     <meta name="keywords" content="記帳,密碼管理,資產管理,加密,財務管理,個人理財">
-    <meta name="author" content="SecureVault">
+    <meta name="author" content="機密管理">
     <meta name="theme-color" content="#00d4aa">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="SecureVault">
+    <meta name="apple-mobile-web-app-title" content="機密管理">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
-    <title>SecureVault - 個人財務管理系統</title>
+    <title>機密管理 - 個人財務管理系統</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
         
@@ -667,8 +667,8 @@
 
 <div id="startup">
   <div class="wrap">
-    <img class="logo" src="logo.svg" alt="SecureVault"/>
-    <div class="title">SecureVault</div>
+    <img class="logo" src="logo.svg" alt="機密管理"/>
+    <div class="title">機密管理</div>
     <div class="sub">Enterprise Secure Finance Vault</div>
   </div>
 </div>
@@ -677,7 +677,7 @@
     <div class="login-screen" id="loginScreen">
         <div class="login-box">
             <div class="logo">
-                <h1>🔐 SecureVault</h1>
+                <h1>🔐 機密管理</h1>
                 <p>加密的個人財務管理系統</p>
             </div>
             <div id="loginError" class="error-message"></div>
@@ -705,17 +705,8 @@
     <div class="app-screen" id="appScreen">
         <div class="container">
             <div class="header">
-                <h2>SecureVault</h2>
-                <div class="header-actions">
-                    <button class="btn-secondary" onclick="importData()">📥 匯入數據</button>
-                    <button class="btn-secondary" onclick="exportData()">📤 匯出數據</button>
-                    <button class="btn-secondary" onclick="clearAllData()">🗑️ 清除數據</button>
-                    <button class="btn-secondary" onclick="logout()">🚪 登出</button>
-                </div>
+                <h2>機密管理</h2>
             </div>
-
-            <!-- 隱藏的檔案輸入 -->
-            <input type="file" id="importFileInput" accept=".json" style="display: none;" onchange="handleImportFile(event)">
 
             <div class="tabs">
                 <button class="tab active" onclick="switchTab(0)">📊 記帳</button>
@@ -1705,7 +1696,7 @@
             const url = URL.createObjectURL(dataBlob);
             const link = document.createElement('a');
             link.href = url;
-            link.download = `SecureVault_備份_${new Date().toISOString().split('T')[0]}.json`;
+            link.download = `機密管理_備份_${new Date().toISOString().split('T')[0]}.json`;
             link.click();
             URL.revokeObjectURL(url);
             
