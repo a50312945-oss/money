@@ -640,15 +640,39 @@
             }
         }
     
-@media (max-width: 768px) {
-  .header, .header-actions {
-    display: none !important;
-  }
-}
+/* ===== Startup Animation PRO ===== */
+:root{--sv-bg:#0a0e27;--sv-accent:#00d4aa;}
+#startup{position:fixed;inset:0;background:var(--sv-bg);display:flex;align-items:center;justify-content:center;z-index:9999}
+#startup .wrap{display:flex;flex-direction:column;align-items:center;gap:10px;animation:svFadeScale 900ms cubic-bezier(.2,.8,.2,1) forwards}
+#startup .logo{width:88px;height:88px;filter:drop-shadow(0 0 0 rgba(0,212,170,.0));animation:svBreath 2.2s ease-in-out infinite}
+#startup .title{color:var(--sv-accent);font-weight:600}
+#startup .sub{color:#9aa0a6;font-size:12px}
+@keyframes svFadeScale{0%{opacity:0;transform:scale(.96)}60%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes svBreath{0%{filter:drop-shadow(0 0 0 rgba(0,212,170,.0))}50%{filter:drop-shadow(0 0 14px rgba(0,212,170,.45))}100%{filter:drop-shadow(0 0 0 rgba(0,212,170,.0))}}
+@keyframes svExit{to{opacity:0;visibility:hidden}}
 
 </style>
+
+<link rel="apple-touch-startup-image" href="splash-iphone-se.png" media="(device-width: 320px) and (device-height: 568px)">
+<link rel="apple-touch-startup-image" href="splash-iphone-8.png" media="(device-width: 375px) and (device-height: 667px)">
+<link rel="apple-touch-startup-image" href="splash-iphone-8-plus.png" media="(device-width: 414px) and (device-height: 736px)">
+<link rel="apple-touch-startup-image" href="splash-iphone-x.png" media="(device-width: 375px) and (device-height: 812px)">
+<link rel="apple-touch-startup-image" href="splash-iphone-11-pro-max.png" media="(device-width: 414px) and (device-height: 896px)">
+<link rel="apple-touch-startup-image" href="splash-iphone-14-pro-max.png" media="(device-width: 430px) and (device-height: 932px)">
+<link rel="apple-touch-startup-image" href="splash-ipad.png" media="(device-width: 768px) and (device-height: 1024px)">
+<link rel="apple-touch-startup-image" href="splash-ipad-pro-12-9.png" media="(device-width: 1024px) and (device-height: 1366px)">
+
 </head>
 <body>
+
+<div id="startup">
+  <div class="wrap">
+    <img class="logo" src="logo.svg" alt="SecureVault"/>
+    <div class="title">SecureVault</div>
+    <div class="sub">Enterprise Secure Finance Vault</div>
+  </div>
+</div>
+
     <!-- 登入畫面 -->
     <div class="login-screen" id="loginScreen">
         <div class="login-box">
@@ -1778,5 +1802,30 @@
             }
         });
     </script>
+
+<script>
+(function(){
+  const KEY='sv_cold_start_done';
+  if(sessionStorage.getItem(KEY)){
+    document.getElementById('startup')?.remove();
+    return;
+  }
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+      const s=document.getElementById('startup');
+      if(s){s.style.animation='svExit 280ms ease forwards';}
+      sessionStorage.setItem(KEY,'1');
+    },700);
+  });
+})();
+</script>
+
+
+<script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('./sw.js');
+}
+</script>
 </body>
+
 </html>
