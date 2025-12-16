@@ -426,8 +426,8 @@
         
         .summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
             margin-bottom: 30px;
         }
         
@@ -618,7 +618,12 @@
             }
             
             .tabs {
-                flex-direction: column;
+                flex-direction: row;
+            }
+            
+            .tab {
+                font-size: 13px;
+                padding: 12px 8px;
             }
             
             .form-row {
@@ -626,7 +631,20 @@
             }
             
             .summary-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .summary-card {
+                padding: 15px 10px;
+            }
+            
+            .summary-label {
+                font-size: 11px;
+            }
+            
+            .summary-value {
+                font-size: 20px;
             }
             
             .modal-content {
